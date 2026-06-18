@@ -1,0 +1,230 @@
+/* ==========================================================================
+   Agrofutura — Página Quem Somos
+   Layout próprio, distinto da Home.
+   ========================================================================== */
+
+/* ---------- 1. Hero (imagem de fundo) ---------- */
+.qs-hero {
+  position: relative;
+  min-height: 78vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--creme);
+  background: var(--qs-hero-bg) center / cover no-repeat, var(--preto);
+  padding-top: 8rem;
+}
+.qs-hero__scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0,0.55) 0%, rgba(0, 0, 0,0.15) 30%),
+    linear-gradient(0deg, rgba(0, 0, 0,0.85) 0%, rgba(0, 0, 0,0.25) 60%);
+}
+.qs-hero__content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-block: clamp(2rem, 6vh, 5rem);
+}
+.qs-hero__eyebrow { color: var(--creme); opacity: 0.85; margin-bottom: 1rem; }
+.qs-hero__title {
+  color: #fff;
+  max-width: 20ch;
+  margin: 0 auto;
+}
+.qs-hero__subtitle {
+  font-size: var(--fs-lead);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.92);
+  max-width: 60ch;
+  margin: 1.5rem auto 0;
+}
+
+/* faixa de números na base do hero */
+.qs-hero__stats {
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid rgba(239, 222, 184, 0.22);
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(3px);
+}
+.qs-hero__stats-inner {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.5rem, 5vw, 4rem);
+  padding-block: 1.5rem;
+  flex-wrap: wrap;
+}
+.qs-stat { display: flex; flex-direction: column; }
+.qs-stat__num {
+  font-size: clamp(1.8rem, 1.2rem + 2vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: #fff;
+  line-height: 1;
+}
+.qs-stat__label {
+  font-size: var(--fs-label);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(239, 222, 184, 0.8);
+  margin-top: 0.35rem;
+}
+.qs-stat--wide { margin-left: auto; }
+.qs-stat__cities {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--creme);
+}
+
+/* ---------- 2. Nossa história ---------- */
+.qs-historia__head {
+  max-width: 64ch;
+  margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+}
+.qs-historia__title { margin: 1rem 0 1.25rem; }
+
+.qs-historia__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: start;
+}
+.qs-video {
+  position: sticky;
+  top: 6rem;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  aspect-ratio: 16 / 10;
+}
+.qs-video__el { width: 100%; height: 100%; object-fit: cover; }
+.qs-video__tag {
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  font-size: var(--fs-label);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--creme);
+  background: rgba(0, 0, 0, 0.45);
+  padding: 0.4em 0.9em;
+  border-radius: 8px;
+  backdrop-filter: blur(2px);
+}
+
+.qs-timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+.qs-timeline::before {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 6px;
+  bottom: 6px;
+  width: 2px;
+  background: rgba(127, 42, 45, 0.18);
+}
+.qs-milestone {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.25rem;
+  padding-bottom: 2rem;
+}
+.qs-milestone:last-child { padding-bottom: 0; }
+.qs-milestone::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: var(--verde);
+  box-shadow: 0 0 0 4px #fff;
+}
+.qs-milestone__year {
+  grid-column: 2;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--vinho);
+  letter-spacing: 0.04em;
+}
+.qs-milestone__body { grid-column: 2; }
+.qs-milestone__place { margin: 0.2rem 0 0.4rem; font-size: 1.15rem; }
+.qs-milestone__text { color: var(--cinza); font-size: 0.95rem; }
+
+.qs-historia__fecho {
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+  max-width: 60ch;
+  font-size: var(--fs-lead);
+  line-height: 1.55;
+  color: var(--preto);
+}
+
+/* ---------- 3. O que fazemos ---------- */
+.qs-fazemos { background: var(--areia); }
+.qs-fazemos__inner { max-width: 64ch; }
+.qs-fazemos__title { margin: 1rem 0 1.25rem; }
+.qs-fazemos__body { font-size: var(--fs-lead); line-height: 1.6; color: var(--preto); }
+
+/* ---------- 4. Nossos pilares ---------- */
+.qs-pilares__head {
+  text-align: center;
+  max-width: 56ch;
+  margin: 0 auto clamp(2.5rem, 5vw, 3.5rem);
+}
+.qs-pilares__head .eyebrow { margin-bottom: 0.9rem; }
+.qs-pilares__head .lead { margin-inline: auto; }
+.qs-pilares__title { margin-bottom: 1rem; }
+
+.qs-pilares__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1rem, 2vw, 1.75rem);
+}
+.qs-pilar {
+  background: var(--areia);
+  border: var(--border);
+  border-radius: var(--radius);
+  padding: clamp(1.75rem, 2.5vw, 2.25rem);
+}
+.qs-pilar__num {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--verde);
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+.qs-pilar__title { margin-bottom: 0.6rem; font-size: 1.2rem; }
+.qs-pilar__text { color: var(--cinza); font-size: 0.95rem; }
+
+.qs-pilares__proposito {
+  text-align: center;
+  max-width: 64ch;
+  margin: clamp(2.5rem, 5vw, 3.5rem) auto 0;
+  font-size: var(--fs-lead);
+  line-height: 1.55;
+  color: var(--preto);
+}
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 900px) {
+  .qs-historia__grid { grid-template-columns: 1fr; }
+  .qs-video { position: relative; top: 0; }
+  .qs-pilares__grid { grid-template-columns: 1fr; }
+  .qs-hero__stats-inner { gap: 1.5rem 2.5rem; }
+  .qs-stat--wide { margin-left: 0; flex-basis: 100%; }
+}

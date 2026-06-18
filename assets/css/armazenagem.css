@@ -1,0 +1,162 @@
+/* ==========================================================================
+   Agrofutura — Página Armazenagem
+   ========================================================================== */
+
+/* ---------- 1. Hero / Capacidade ---------- */
+.arz-hero {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: var(--creme);
+  background: var(--arz-hero-bg) center / cover no-repeat, var(--preto);
+  padding-top: 9rem;
+}
+.arz-hero__scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0,0.55) 0%, rgba(0, 0, 0,0.12) 32%),
+    linear-gradient(0deg, rgba(0, 0, 0,0.88) 0%, rgba(0, 0, 0,0.2) 60%);
+}
+.arz-hero__content {
+  position: relative;
+  z-index: 1;
+  padding-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+.arz-hero__eyebrow { color: var(--creme); opacity: 0.85; margin-bottom: 1rem; }
+.arz-hero__title { color: #fff; max-width: 22ch; }
+.arz-hero__subtitle {
+  font-size: var(--fs-lead);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.92);
+  max-width: 60ch;
+  margin-top: 1.5rem;
+}
+
+.arz-hero__proof {
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid rgba(239, 222, 184, 0.22);
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(3px);
+}
+.arz-proof__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  padding-block: 1.5rem;
+  flex-wrap: wrap;
+}
+.arz-proof__stats { display: flex; gap: clamp(1.5rem, 4vw, 3rem); }
+.arz-pstat { display: flex; flex-direction: column; }
+.arz-pstat__num {
+  font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: #fff;
+  line-height: 1;
+}
+.arz-pstat__label {
+  font-size: var(--fs-label);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(239, 222, 184, 0.8);
+  margin-top: 0.35rem;
+  max-width: 22ch;
+}
+.arz-proof__pills { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.arz-proof__pills li {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--creme);
+  border: 1px solid rgba(239, 222, 184, 0.35);
+  border-radius: 999px;
+  padding: 0.45em 1em;
+}
+
+/* ---------- 2. Como funciona ---------- */
+.arz-como__head {
+  max-width: 60ch;
+  margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+}
+.arz-como__title { margin: 1rem 0 1.25rem; }
+
+.arz-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+.arz-step {
+  background: var(--areia);
+  border: var(--border);
+  border-radius: var(--radius);
+  padding: clamp(1.5rem, 2.2vw, 2rem);
+  position: relative;
+}
+.arz-step__num {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--verde);
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+.arz-step__title { font-size: 1.1rem; margin-bottom: 0.6rem; }
+.arz-step__text { font-size: 0.92rem; color: var(--cinza); }
+
+.arz-como__fecho {
+  max-width: 64ch;
+  margin: clamp(2.5rem, 5vw, 3.5rem) auto 0;
+  text-align: center;
+  font-size: var(--fs-lead);
+  line-height: 1.55;
+  color: var(--preto);
+}
+
+/* ---------- 3. CTA (band verde escuro) ---------- */
+.arz-cta {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(160deg, #2F4A34 0%, #1E311E 100%);
+  color: var(--creme);
+  padding-block: clamp(4rem, 9vw, 7rem);
+  text-align: center;
+}
+.arz-cta__pattern {
+  position: absolute;
+  inset: 0;
+  background: url("../img/patterns/white.webp") center / 520px repeat;
+  opacity: 0.08;
+}
+.arz-cta__inner { position: relative; z-index: 1; }
+.arz-cta__title { color: #fff; max-width: 20ch; margin: 0 auto 1rem; }
+.arz-cta__apoio {
+  font-size: var(--fs-lead);
+  color: rgba(239, 222, 184, 0.9);
+  max-width: 50ch;
+  margin: 0 auto 2rem;
+}
+.arz-cta__actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 900px) {
+  .arz-steps { grid-template-columns: repeat(2, 1fr); }
+  .arz-proof__inner { justify-content: flex-start; }
+}
+@media (max-width: 560px) {
+  .arz-steps { grid-template-columns: 1fr; }
+  .arz-proof__stats { flex-direction: column; gap: 1.25rem; }
+}
