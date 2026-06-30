@@ -1,0 +1,149 @@
+/* ==========================================================================
+   Agrofutura — Página Insumos
+   Hero + portfólio (grade plana) + CTA com vídeo de fundo.
+   ========================================================================== */
+
+/* ---------- 1. Hero (mesmo esquema das demais páginas internas) ---------- */
+.ins-hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+  background: var(--ins-hero-bg) center / cover no-repeat, var(--preto);
+  padding-top: 8rem;
+}
+.ins-hero__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.ins-hero__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 0; /* acima do vídeo (mesma camada, vem depois no DOM) */
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.15) 30%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.25) 60%);
+}
+.ins-hero__content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-block: clamp(2rem, 6vh, 5rem);
+}
+.ins-hero__eyebrow { color: #fff; opacity: 0.85; margin-bottom: 1rem; }
+.ins-hero__title { color: #fff; max-width: 18ch; margin: 0 auto; }
+.ins-hero__subtitle {
+  font-size: var(--fs-lead);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.92);
+  max-width: 60ch;
+  margin: 1.5rem auto 0;
+}
+
+/* ---------- Pilha sticky: portfólio fica fixo e a seção de Insumos sobe por cima ---------- */
+.ins-stack { position: relative; }
+.ins-stack > .ins-port {
+  position: sticky;
+  top: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+.ins-stack > .ins-port > .container { width: 100%; }
+
+/* ---------- 2. O que levamos ao campo (portfólio) ---------- */
+/* Duas colunas: head (eyebrow + título + intro) | lista de destaques empilhada */
+.ins-port__cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: start;
+}
+.ins-port__head .eyebrow { margin-bottom: 0.9rem; }
+.ins-port__title { margin-bottom: 1.25rem; }
+.ins-port__lead { max-width: none; }
+
+/* Lista vertical com linhas separadoras */
+.ins-port__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  border-top: 1px solid var(--qs-line, rgba(0, 0, 0, 0.14));
+}
+.ins-card {
+  padding: clamp(1.5rem, 2.5vw, 2rem) 0;
+  border-bottom: 1px solid var(--qs-line, rgba(0, 0, 0, 0.14));
+  display: flex;
+  flex-direction: column;
+}
+.ins-card__brand {
+  font-size: var(--fs-label);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--vinho);
+  margin-bottom: 0.6rem;
+}
+.ins-card__name { font-size: 1.3rem; margin-bottom: 0.4rem; }
+.ins-card__desc { color: var(--cinza); font-size: 0.95rem; }
+
+.ins-port__fecho {
+  margin-top: 1.5rem;
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: var(--cinza);
+}
+
+/* ---------- 3. CTA (vídeo de fundo + overlay escuro) ---------- */
+.ins-cta {
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  padding-block: clamp(4rem, 9vw, 7rem);
+  text-align: center;
+}
+.ins-cta__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.ins-cta__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.75);
+}
+.ins-cta__inner { position: relative; z-index: 2; }
+.ins-cta__title { color: #fff; max-width: 20ch; margin: 0 auto 1rem; }
+.ins-cta__apoio {
+  font-size: var(--fs-lead);
+  color: #fff;
+  max-width: none;
+  margin: 0 auto 2rem;
+}
+.ins-cta__actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 900px) {
+  .ins-port__cols { grid-template-columns: 1fr; gap: clamp(1.5rem, 5vw, 2.5rem); }
+  .ins-stack > .ins-port { position: static; min-height: auto; display: block; }
+}

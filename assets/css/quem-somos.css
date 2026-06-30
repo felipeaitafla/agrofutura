@@ -6,20 +6,29 @@
 /* ---------- 1. Hero (imagem de fundo) ---------- */
 .qs-hero {
   position: relative;
-  min-height: 78vh;
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: var(--creme);
+  color: #fff;
   background: var(--qs-hero-bg) center / cover no-repeat, var(--preto);
   padding-top: 8rem;
+}
+.qs-hero__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
 }
 .qs-hero__scrim {
   position: absolute;
   inset: 0;
+  z-index: 0; /* acima do vídeo (mesma camada, vem depois no DOM) */
   background:
-    linear-gradient(180deg, rgba(0, 0, 0,0.55) 0%, rgba(0, 0, 0,0.15) 30%),
-    linear-gradient(0deg, rgba(0, 0, 0,0.85) 0%, rgba(0, 0, 0,0.25) 60%);
+    linear-gradient(180deg, rgba(0, 0, 0,0.65) 0%, rgba(0, 0, 0,0.25) 30%),
+    linear-gradient(0deg, rgba(0, 0, 0,0.95) 0%, rgba(0, 0, 0,0.35) 60%);
 }
 .qs-hero__content {
   position: relative;
@@ -31,7 +40,7 @@
   justify-content: center;
   padding-block: clamp(2rem, 6vh, 5rem);
 }
-.qs-hero__eyebrow { color: var(--creme); opacity: 0.85; margin-bottom: 1rem; }
+.qs-hero__eyebrow { color: #fff; opacity: 0.85; margin-bottom: 1rem; }
 .qs-hero__title {
   color: #fff;
   max-width: 20ch;
@@ -73,14 +82,14 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: rgba(239, 222, 184, 0.8);
+  color: rgba(255, 255, 255, 0.8);
   margin-top: 0.35rem;
 }
 .qs-stat--wide { margin-left: auto; }
 .qs-stat__cities {
   font-size: 0.95rem;
   font-weight: 700;
-  color: var(--creme);
+  color: #fff;
 }
 
 /* ---------- 2. Nossa história ---------- */
@@ -99,26 +108,10 @@
 .qs-video {
   position: sticky;
   top: 6rem;
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow);
+  overflow: hidden; /* mantém o vídeo no recorte, mas sem cantos arredondados (padrão da home) */
   aspect-ratio: 16 / 10;
 }
 .qs-video__el { width: 100%; height: 100%; object-fit: cover; }
-.qs-video__tag {
-  position: absolute;
-  left: 1rem;
-  bottom: 1rem;
-  font-size: var(--fs-label);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--creme);
-  background: rgba(0, 0, 0, 0.45);
-  padding: 0.4em 0.9em;
-  border-radius: 8px;
-  backdrop-filter: blur(2px);
-}
 
 .qs-timeline {
   list-style: none;
@@ -129,37 +122,37 @@
 .qs-timeline::before {
   content: "";
   position: absolute;
-  left: 7px;
+  left: -3px;
   top: 6px;
   bottom: 6px;
   width: 2px;
-  background: rgba(127, 42, 45, 0.18);
+  background: rgba(0, 0, 0, 0.12);
 }
 .qs-milestone {
   position: relative;
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 1.25rem;
+  gap: 1.75rem;
   padding-bottom: 2rem;
 }
 .qs-milestone:last-child { padding-bottom: 0; }
 .qs-milestone::before {
   content: "";
   position: absolute;
-  left: 2px;
+  left: -8px;
   top: 6px;
   width: 12px;
   height: 12px;
   border-radius: 999px;
-  background: var(--verde);
+  background: var(--vinho);
   box-shadow: 0 0 0 4px #fff;
 }
 .qs-milestone__year {
   grid-column: 2;
-  font-size: 0.9rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: var(--vinho);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
 }
 .qs-milestone__body { grid-column: 2; }
 .qs-milestone__place { margin: 0.2rem 0 0.4rem; font-size: 1.15rem; }
@@ -173,33 +166,57 @@
   color: var(--preto);
 }
 
-/* ---------- 3. O que fazemos ---------- */
-.qs-fazemos { background: var(--areia); }
-.qs-fazemos__inner { max-width: 64ch; }
+/* ---------- 3. O que fazemos (split: texto + mídia, padrão "Onde estamos") ---------- */
+.qs-fazemos__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  min-height: 75vh;
+}
+.qs-fazemos__text {
+  position: relative;
+  background-color: #FDFBF7;
+  /* alinha o conteúdo à borda esquerda do container (espelho da .unidades__text) */
+  padding: clamp(3rem, 6vw, 6rem) clamp(2rem, 5vw, 5rem) clamp(3rem, 6vw, 6rem) max(var(--gutter), calc((100vw - var(--container)) / 2 + var(--gutter)));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.qs-fazemos__text::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("../img/patterns/green.webp") center / 400px repeat;
+  opacity: 0.08;
+  pointer-events: none;
+}
+.qs-fazemos__text > * { position: relative; z-index: 1; }
 .qs-fazemos__title { margin: 1rem 0 1.25rem; }
-.qs-fazemos__body { font-size: var(--fs-lead); line-height: 1.6; color: var(--preto); }
+.qs-fazemos__body { font-size: var(--fs-lead); line-height: 1.6; color: var(--preto); max-width: 45ch; }
+.qs-fazemos__media { position: relative; overflow: hidden; background: var(--preto); }
+.qs-fazemos__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 
 /* ---------- 4. Nossos pilares ---------- */
 .qs-pilares__head {
   text-align: center;
-  max-width: 56ch;
   margin: 0 auto clamp(2.5rem, 5vw, 3.5rem);
 }
 .qs-pilares__head .eyebrow { margin-bottom: 0.9rem; }
-.qs-pilares__head .lead { margin-inline: auto; }
+.qs-pilares__head .lead { margin-inline: auto; max-width: none; } /* uma linha no desktop */
 .qs-pilares__title { margin-bottom: 1rem; }
 
 .qs-pilares__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: clamp(1rem, 2vw, 1.75rem);
+  border-block: 1px solid var(--qs-line, rgba(0, 0, 0, 0.14));
 }
 .qs-pilar {
-  background: var(--areia);
-  border: var(--border);
-  border-radius: var(--radius);
-  padding: clamp(1.75rem, 2.5vw, 2.25rem);
+  padding: clamp(2rem, 3vw, 3rem) clamp(1.5rem, 2.5vw, 2.5rem);
+  border-left: 1px solid var(--qs-line, rgba(0, 0, 0, 0.14));
 }
+.qs-pilar:first-child { border-left: none; padding-left: 0.25rem; }
+.qs-pilar:last-child { padding-right: 0.25rem; }
 .qs-pilar__num {
   display: block;
   font-size: 1.6rem;
@@ -220,11 +237,100 @@
   color: var(--preto);
 }
 
+/* ---------- 5. Filiais (mapa + lista, padrão "Onde estamos") ---------- */
+.qs-filiais__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  min-height: 75vh;
+}
+.qs-filiais__map {
+  position: relative;
+  overflow: hidden;
+  background: var(--preto);
+}
+.qs-filiais__iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.qs-filiais__panel {
+  position: relative;
+  background-color: var(--vinho);
+  color: #fff;
+  /* alinha o conteúdo à borda direita do container (igual à .unidades__text) */
+  padding: clamp(3rem, 6vw, 6rem) max(var(--gutter), calc((100vw - var(--container)) / 2 + var(--gutter))) clamp(3rem, 6vw, 6rem) clamp(2rem, 5vw, 5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.qs-filiais__panel > * { position: relative; z-index: 1; }
+.qs-filiais__panel .eyebrow { color: var(--creme); }
+.qs-filiais__title { margin: 1rem 0 1.25rem; color: #fff; }
+.qs-filiais__lead { margin-bottom: 2rem; max-width: 45ch; color: rgba(255, 255, 255, 0.92); }
+
+.qs-filiais__list { display: grid; border-top: 1px solid rgba(255, 255, 255, 0.2); }
+.qs-filial {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  text-align: left;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1.1rem 1.25rem;
+  padding-left: 0;
+  cursor: pointer;
+  transition: padding-left 0.3s var(--ease);
+}
+.qs-filial::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--creme);
+  transform: scaleY(0);
+  transition: transform 0.3s var(--ease);
+}
+.qs-filial:hover { padding-left: 1rem; }
+.qs-filial.is-active { padding-left: 1rem; }
+.qs-filial.is-active::before { transform: scaleY(1); }
+.qs-filial__name { font-weight: 700; color: rgba(255, 255, 255, 0.88); transition: color 0.3s var(--ease); }
+.qs-filial.is-active .qs-filial__name,
+.qs-filial:hover .qs-filial__name { color: #fff; }
+.qs-filial__city {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--creme);
+  opacity: 0.75;
+}
+
 /* ---------- Responsivo ---------- */
 @media (max-width: 900px) {
   .qs-historia__grid { grid-template-columns: 1fr; }
   .qs-video { position: relative; top: 0; }
   .qs-pilares__grid { grid-template-columns: 1fr; }
+  .qs-pilar {
+    border-left: none;
+    border-top: 1px solid var(--qs-line, rgba(0, 0, 0, 0.14));
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+  }
+  .qs-pilar:first-child { border-top: none; }
   .qs-hero__stats-inner { gap: 1.5rem 2.5rem; }
   .qs-stat--wide { margin-left: 0; flex-basis: 100%; }
+  .qs-fazemos__grid { grid-template-columns: 1fr; }
+  .qs-fazemos__media { min-height: 50vh; order: -1; }
+  .qs-fazemos__text { padding: clamp(3rem, 8vw, 4rem) max(var(--gutter), calc((100vw - var(--container)) / 2 + var(--gutter))); }
+  .qs-filiais__grid { grid-template-columns: 1fr; }
+  .qs-filiais__map { min-height: 50vh; order: -1; }
+  .qs-filiais__panel { padding: clamp(3rem, 8vw, 4rem) max(var(--gutter), calc((100vw - var(--container)) / 2 + var(--gutter))); }
 }

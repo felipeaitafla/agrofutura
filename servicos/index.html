@@ -4,9 +4,11 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="preconnect" href="https://unpkg.com" crossorigin>
-	<title>agrofutura</title>
+	<title>Servi├ºos &#8211; agrofutura</title>
 <meta name='robots' content='max-image-preview:large' />
 <link rel='dns-prefetch' href='//unpkg.com' />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=%2Fservicos%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=%2Fservicos%2F&#038;format=xml" />
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 /*# sourceURL=wp-img-auto-sizes-contain-inline-css */
@@ -44,10 +46,13 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
 <link rel='stylesheet' id='agrofutura-design-system-css' href='/assets/css/design-system.css?ver=1781813907' media='all' />
 <link rel='stylesheet' id='agrofutura-home-css' href='/assets/css/home.css?ver=1782831389' media='all' />
-<link rel="https://api.w.org/" href="/wp-json/" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd" />
+<link rel='stylesheet' id='agrofutura-servicos-css' href='/assets/css/servicos.css?ver=1782822910' media='all' />
+<link rel="https://api.w.org/" href="/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="/wp-json/wp/v2/pages/8" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd" />
 <meta name="generator" content="WordPress 7.0" />
+<link rel="canonical" href="/servicos/" />
+<link rel='shortlink' href='/?p=8' />
 </head>
-<body class="home blog wp-theme-agrofutura">
+<body class="wp-singular page-template-default page page-id-8 wp-theme-agrofutura">
 
 <a class="skip-link screen-reader-text" href="#main">Pular para o conteúdo</a>
 
@@ -60,9 +65,9 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
 		<nav class="site-nav" aria-label="Navegação principal">
 						<ul class="site-nav__list" role="list">
-				<li><a href="/" class="is-active">Início</a></li>
+				<li><a href="/">Início</a></li>
 				<li><a href="/quem-somos/">Quem somos</a></li>
-				<li><a href="/servicos/">Serviços</a></li>
+				<li><a href="/servicos/" class="is-active">Serviços</a></li>
 				<li><a href="/armazenagem/">Armazenagem</a></li>
 				<li><a href="/insumos/">Insumos</a></li>
 				<li><a href="/trabalhe-conosco/">Trabalhe conosco</a></li>
@@ -78,370 +83,184 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
 <main id="main" class="site-main">
 
-<!-- Camada de vídeo FIXA: fica parada enquanto o conteúdo sobe por cima. -->
-<div class="bg-video" aria-hidden="true">
-	<video class="bg-video__el" autoplay muted loop playsinline preload="metadata" poster="/assets/img/hero-poster.avif">
-		<source src="/assets/video/hero.webm?v=1781782328" type="video/webm">
-		<source src="/assets/video/hero.mp4?v=1781782322" type="video/mp4">
+<!-- 1. Hero -->
+<section class="svc-hero" style="--svc-hero-bg:url('/assets/img/hero-poster.avif')">
+	<video class="svc-hero__video" autoplay muted loop playsinline preload="metadata" poster="/assets/img/hero-poster.avif">
+		<source src="/assets/video/servicos.mp4?v=1782822881" type="video/mp4">
 	</video>
-	<div class="bg-video__scrim"></div>
-</div>
-
-<section class="hero" id="hero">
-	<div class="hero__content container">
-		<p class="eyebrow hero__eyebrow" data-reveal>
-			Armazenagem • Agricultura de precisão • Drone • Insumos
-		</p>
-		<h1 class="hero__title" data-reveal style="--reveal-delay:80ms">
-			Onde o futuro do agro se transforma em resultados
+	<div class="svc-hero__scrim"></div>
+	<div class="svc-hero__content container">
+		<p class="eyebrow svc-hero__eyebrow" data-reveal>O que fazemos</p>
+		<h1 class="svc-hero__title" data-reveal style="--reveal-delay:80ms">
+			Tudo o que sua lavoura precisa, com quem entende da sua região
 		</h1>
-		<p class="hero__subtitle lead" data-reveal style="--reveal-delay:160ms">
-			Do plantio ao grão armazenado, um parceiro só. Lavoura, insumos, armazenagem e mais —
-			a Agrofutura acompanha cada etapa da sua produção com tecnologia de ponta e a
-			proximidade de quem é da região.
+		<p class="svc-hero__subtitle" data-reveal style="--reveal-delay:160ms">
+			Da agricultura de precisão à armazenagem, a Agrofutura acompanha cada etapa da sua
+			produção com tecnologia e suporte técnico de perto.
 		</p>
-		<div class="hero__actions" data-reveal style="--reveal-delay:240ms">
-			<a class="btn btn--primary btn--on-dark" href="https://wa.me/5555999818419?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20a%20Agrofutura." target="_blank" rel="noopener">Fale no WhatsApp</a>
-			<a class="btn btn--ghost btn--on-dark" href="#cotacao">Explorar</a>
-		</div>
 	</div>
 
-	<a class="hero__scroll" href="#cotacao" aria-label="Rolar para baixo">
+	<a class="hero__scroll" href="#servicos-lista" aria-label="Rolar para baixo">
 		<span></span>
 	</a>
 </section>
-<section class="section cotacao" id="cotacao">
-	<div class="container">
-		<header class="cotacao__head" data-reveal>
-			<p class="eyebrow">Cotações em tempo real</p>
-			<h2 class="cotacao__title">Acompanhe o que move a sua lavoura</h2>
-		</header>
 
-				<div class="cot-grid" data-reveal style="--reveal-delay:80ms">
-							<article class="cot-card" style="--reveal-delay:140ms">
-					<div class="cot-card__top">
-						<span class="cot-card__icon cot-card__icon--soja">
-							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="10" cy="10" rx="3" ry="4.3" transform="rotate(40 10 10)"/><ellipse cx="14" cy="14" rx="3" ry="4.3" transform="rotate(40 14 14)"/></svg>						</span>
-													<span class="cot-card__var cot-card__var--down">
-								<span class="cot-card__arrow" aria-hidden="true">▼</span>
-								−0,35%							</span>
-											</div>
-					<span class="cot-card__name label">Soja</span>
-					<p class="cot-card__value">R$ 128,50</p>
-					<p class="cot-card__meta">
-						por sc 60kg · Paranaguá/PR					</p>
-				</article>
-							<article class="cot-card" style="--reveal-delay:200ms">
-					<div class="cot-card__top">
-						<span class="cot-card__icon cot-card__icon--milho">
-							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5c2.8 0 4.8 3 4.8 8s-2 9-4.8 9-4.8-4-4.8-9 2-8 4.8-8Z"/><path d="M9 8h6M8.6 11h6.8M9 14h6M10 17h4"/></svg>						</span>
-													<span class="cot-card__var cot-card__var--up">
-								<span class="cot-card__arrow" aria-hidden="true">▲</span>
-								+1,20%							</span>
-											</div>
-					<span class="cot-card__name label">Milho</span>
-					<p class="cot-card__value">R$ 72,80</p>
-					<p class="cot-card__meta">
-						por sc 60kg · Campinas/SP					</p>
-				</article>
-							<article class="cot-card" style="--reveal-delay:260ms">
-					<div class="cot-card__top">
-						<span class="cot-card__icon cot-card__icon--trigo">
-							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21v-9.5"/><path d="M12 12c0-2-1.6-3.6-3.6-3.6C8.4 10.4 10 12 12 12Z"/><path d="M12 12c0-2 1.6-3.6 3.6-3.6C15.6 10.4 14 12 12 12Z"/><path d="M12 16c0-2-1.6-3.6-3.6-3.6C8.4 14.4 10 16 12 16Z"/><path d="M12 16c0-2 1.6-3.6 3.6-3.6C15.6 14.4 14 16 12 16Z"/><path d="M12 8.4c0-2-1.6-3.6-3.6-3.6C8.4 6.8 10 8.4 12 8.4Z"/><path d="M12 8.4c0-2 1.6-3.6 3.6-3.6C15.6 6.8 14 8.4 12 8.4Z"/></svg>						</span>
-													<span class="cot-card__var cot-card__var--up">
-								<span class="cot-card__arrow" aria-hidden="true">▲</span>
-								+0,45%							</span>
-											</div>
-					<span class="cot-card__name label">Trigo</span>
-					<p class="cot-card__value">R$ 82,50</p>
-					<p class="cot-card__meta">
-						por sc 60kg · Paraná					</p>
-				</article>
-							<article class="cot-card" style="--reveal-delay:320ms">
-					<div class="cot-card__top">
-						<span class="cot-card__icon cot-card__icon--dolar">
-							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M14.6 9.2c-.6-1-1.7-1.5-2.8-1.5-1.5 0-2.6.8-2.6 2 0 2.9 5.7 1.4 5.7 4.4 0 1.3-1.2 2.2-2.9 2.2-1.4 0-2.5-.6-3.1-1.6"/><path d="M12 6v12"/></svg>						</span>
-													<span class="cot-card__var cot-card__var--down">
-								<span class="cot-card__arrow" aria-hidden="true">▼</span>
-								−0,06%							</span>
-											</div>
-					<span class="cot-card__name label">Dólar Comercial</span>
-					<p class="cot-card__value">R$ 5,18</p>
-					<p class="cot-card__meta">
-											</p>
-				</article>
-					</div>
-		
-				<div class="prev-grid" data-reveal style="--reveal-delay:120ms">
-							<article class="prev-card">
-					<div class="prev-card__now">
-						<div class="prev-card__icon prev-card__icon--nuvem">
-							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 18h9.5a3.2 3.2 0 0 0 0-6.4 4.3 4.3 0 0 0-8.2-1.3A3.4 3.4 0 0 0 7.5 18Z"/></svg>						</div>
-						<div class="prev-card__head">
-							<span class="prev-card__city">Santo Ângelo</span>
-							<span class="prev-card__temp">18°</span>
-							<span class="prev-card__cond">Nublado</span>
-						</div>
-					</div>
-										<div class="prev-card__days">
-													<div class="prev-day">
-								<span class="prev-day__name">Qua</span>
-								<span class="prev-day__icon prev-card__icon--chuva">
-									<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 15h9.5a3.2 3.2 0 0 0 0-6.4 4.3 4.3 0 0 0-8.2-1.3A3.4 3.4 0 0 0 7.5 15Z"/><path d="M9 18.5 8 21M13 18.5 12 21M17 18.5 16 21"/></svg>								</span>
-								<span class="prev-day__temp">20°<small>13°</small></span>
-							</div>
-													<div class="prev-day">
-								<span class="prev-day__name">Qui</span>
-								<span class="prev-day__icon prev-card__icon--chuva">
-									<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 15h9.5a3.2 3.2 0 0 0 0-6.4 4.3 4.3 0 0 0-8.2-1.3A3.4 3.4 0 0 0 7.5 15Z"/><path d="M9 18.5 8 21M13 18.5 12 21M17 18.5 16 21"/></svg>								</span>
-								<span class="prev-day__temp">15°<small>6°</small></span>
-							</div>
-													<div class="prev-day">
-								<span class="prev-day__name">Sex</span>
-								<span class="prev-day__icon prev-card__icon--sol-nuvem">
-									<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 10a3 3 0 0 1 5.7-1.3"/><path d="M5 8.5 4 7.5M8.5 5 8 4M12 6.5l.7-.9"/><path d="M8.5 18h8.5a3 3 0 0 0 0-6 4 4 0 0 0-7.6-1.2A3.2 3.2 0 0 0 8.5 18Z"/></svg>								</span>
-								<span class="prev-day__temp">11°<small>1°</small></span>
-							</div>
-											</div>
-									</article>
-							<article class="prev-card">
-					<div class="prev-card__now">
-						<div class="prev-card__icon prev-card__icon--nuvem">
-							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 18h9.5a3.2 3.2 0 0 0 0-6.4 4.3 4.3 0 0 0-8.2-1.3A3.4 3.4 0 0 0 7.5 18Z"/></svg>						</div>
-						<div class="prev-card__head">
-							<span class="prev-card__city">Vitória das Missões</span>
-							<span class="prev-card__temp">18°</span>
-							<span class="prev-card__cond">Nublado</span>
-						</div>
-					</div>
-										<div class="prev-card__days">
-													<div class="prev-day">
-								<span class="prev-day__name">Qua</span>
-								<span class="prev-day__icon prev-card__icon--tempestade">
-									<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 14h9.5a3.2 3.2 0 0 0 0-6.4 4.3 4.3 0 0 0-8.2-1.3A3.4 3.4 0 0 0 7.5 14Z"/><path d="m12.5 16-2.5 3.5h2.5L10.5 22"/></svg>								</span>
-								<span class="prev-day__temp">19°<small>12°</small></span>
-							</div>
-													<div class="prev-day">
-								<span class="prev-day__name">Qui</span>
-								<span class="prev-day__icon prev-card__icon--chuva">
-									<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 15h9.5a3.2 3.2 0 0 0 0-6.4 4.3 4.3 0 0 0-8.2-1.3A3.4 3.4 0 0 0 7.5 15Z"/><path d="M9 18.5 8 21M13 18.5 12 21M17 18.5 16 21"/></svg>								</span>
-								<span class="prev-day__temp">15°<small>6°</small></span>
-							</div>
-													<div class="prev-day">
-								<span class="prev-day__name">Sex</span>
-								<span class="prev-day__icon prev-card__icon--sol-nuvem">
-									<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 10a3 3 0 0 1 5.7-1.3"/><path d="M5 8.5 4 7.5M8.5 5 8 4M12 6.5l.7-.9"/><path d="M8.5 18h8.5a3 3 0 0 0 0-6 4 4 0 0 0-7.6-1.2A3.2 3.2 0 0 0 8.5 18Z"/></svg>								</span>
-								<span class="prev-day__temp">11°<small>1°</small></span>
-							</div>
-											</div>
-									</article>
-							<article class="prev-card">
-					<div class="prev-card__now">
-						<div class="prev-card__icon prev-card__icon--sol-nuvem">
-							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 10a3 3 0 0 1 5.7-1.3"/><path d="M5 8.5 4 7.5M8.5 5 8 4M12 6.5l.7-.9"/><path d="M8.5 18h8.5a3 3 0 0 0 0-6 4 4 0 0 0-7.6-1.2A3.2 3.2 0 0 0 8.5 18Z"/></svg>						</div>
-						<div class="prev-card__head">
-							<span class="prev-card__city">Santiago</span>
-							<span class="prev-card__temp">14°</span>
-							<span class="prev-card__cond">Predomínio de sol</span>
-						</div>
-					</div>
-										<div class="prev-card__days">
-													<div class="prev-day">
-								<span class="prev-day__name">Qua</span>
-								<span class="prev-day__icon prev-card__icon--chuva">
-									<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 15h9.5a3.2 3.2 0 0 0 0-6.4 4.3 4.3 0 0 0-8.2-1.3A3.4 3.4 0 0 0 7.5 15Z"/><path d="M9 18.5 8 21M13 18.5 12 21M17 18.5 16 21"/></svg>								</span>
-								<span class="prev-day__temp">17°<small>9°</small></span>
-							</div>
-													<div class="prev-day">
-								<span class="prev-day__name">Qui</span>
-								<span class="prev-day__icon prev-card__icon--chuva">
-									<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 15h9.5a3.2 3.2 0 0 0 0-6.4 4.3 4.3 0 0 0-8.2-1.3A3.4 3.4 0 0 0 7.5 15Z"/><path d="M9 18.5 8 21M13 18.5 12 21M17 18.5 16 21"/></svg>								</span>
-								<span class="prev-day__temp">12°<small>4°</small></span>
-							</div>
-													<div class="prev-day">
-								<span class="prev-day__name">Sex</span>
-								<span class="prev-day__icon prev-card__icon--nuvem">
-									<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 18h9.5a3.2 3.2 0 0 0 0-6.4 4.3 4.3 0 0 0-8.2-1.3A3.4 3.4 0 0 0 7.5 18Z"/></svg>								</span>
-								<span class="prev-day__temp">9°<small>0°</small></span>
-							</div>
-											</div>
-									</article>
-					</div>
-		
-		<p class="cotacao__credit" data-reveal>
-			Cotações: CEPEA/ESALQ via Redação Agro							· atualizado 30/06 às 15h						· Previsão: Open-Meteo
-		</p>
-	</div>
-</section>
-<section class="peek" id="peek">
-	<div class="peek__scrim"></div>
-	<div class="peek__content container" data-reveal>
-		<p class="eyebrow peek__eyebrow">Gerando Resultados</p>
-		<p class="peek__line">Do plantio ao grão armazenado, um parceiro só.</p>
-	</div>
-</section>
-<section class="section quem" id="quem-somos">
-	<div class="container quem__grid">
-		<div class="quem__text" data-reveal>
-			<p class="eyebrow">A Agrofutura</p>
-			<h2 class="quem__title">Sua lavoura e seus grãos em mãos sólidas</h2>
-			<p class="text quem__body">
-				Somos uma empresa da região, próxima de quem produz, com a estrutura de quem
-				pensa grande. Unimos escala — unidades, capacidade de armazenagem e logística —
-				à especialização em agricultura de precisão, pulverização com drone e
-				acompanhamento técnico no campo. Aqui o produtor não é número: é <em>parceiro</em>.
-			</p>
-			<a class="btn btn--primary" href="#contato">Conheça a Agrofutura</a>
+<!-- 2. Serviços — pilha com efeito stacking (cada seção sobe por cima da anterior) -->
+<div class="svc-stack" id="servicos-lista">
+	<section class="svc svc--vinho svc--img-left">
+	<div class="svc__grid">
+		<div class="svc__media" data-reveal>
+			<img src="/assets/img/servicos/agricultura-precisao.webp" alt="Agricultura de precisão" loading="lazy">
 		</div>
 
-				<ul class="quem__stats" role="list" data-reveal style="--reveal-delay:120ms">
-							<li class="stat">
-					<span class="stat__num">500 mil</span>
-					<span class="stat__label">sacas de capacidade de armazenagem</span>
-				</li>
-							<li class="stat">
-					<span class="stat__num">15</span>
-					<span class="stat__label">anos no agro</span>
-				</li>
-							<li class="stat">
-					<span class="stat__num">1.200</span>
-					<span class="stat__label">produtores atendidos</span>
-				</li>
-					</ul>
-			</div>
-</section>
-<section class="section parceiros" id="parceiros">
-	<div class="container">
-		<header class="parceiros__head" data-reveal>
-			<p class="eyebrow">Parceiros</p>
-			<h2 class="parceiros__title">Trabalhamos com as melhores marcas</h2>
-		</header>
-		<div class="parceiros__carousel" data-reveal style="--reveal-delay:80ms">
-			<div class="parceiros__track">
-				<ul class="parceiros__grid" role="list">
-											<li class="parceiro">
-							<img src="/assets/img/logos/bayer.svg" alt="Logo Parceiro" loading="lazy">
-						</li>
-											<li class="parceiro">
-							<img src="/assets/img/logos/dekalb.png" alt="Logo Parceiro" loading="lazy">
-						</li>
-											<li class="parceiro">
-							<img src="/assets/img/logos/gioveli.png" alt="Logo Parceiro" loading="lazy">
-						</li>
-											<li class="parceiro">
-							<img src="/assets/img/logos/icl.png" alt="Logo Parceiro" loading="lazy">
-						</li>
-											<li class="parceiro">
-							<img src="/assets/img/logos/multitecnica.png" alt="Logo Parceiro" loading="lazy">
-						</li>
-											<li class="parceiro">
-							<img src="/assets/img/logos/ouropro.svg" alt="Logo Parceiro" loading="lazy">
-						</li>
-											<li class="parceiro">
-							<img src="/assets/img/logos/perfocal.png" alt="Logo Parceiro" loading="lazy">
-						</li>
-											<li class="parceiro">
-							<img src="/assets/img/logos/roratto.png" alt="Logo Parceiro" loading="lazy">
-						</li>
+		<div class="svc__text" data-reveal style="--reveal-delay:120ms">
+							<p class="eyebrow svc__eyebrow">Serviço 01</p>
+						<h2 class="svc__title">Agricultura de precisão</h2>
+			<p class="svc__body">Cada talhão da sua lavoura é diferente — e tratar tudo igual significa desperdiçar insumo onde não precisa e deixar de produzir onde dá. Com a agricultura de precisão, a gente lê o que a sua área realmente pede e ajusta o manejo metro a metro, transformando dado em produtividade.</p>
+
+												<p class="svc__list-label">O que entra</p>
+								<ul class="svc__list" role="list">
+											<li>
+														Mapeamento e análise do solo e da produtividade por talhão						</li>
+											<li>
+														Recomendação de manejo orientada por dados						</li>
+											<li>
+														Aplicação a taxa variável — o insumo certo, na dose certa, no lugar certo						</li>
+											<li>
+														Acompanhamento dos resultados safra a safra						</li>
 									</ul>
-				<ul class="parceiros__grid" role="list" aria-hidden="true">
-											<li class="parceiro">
-							<img src="/assets/img/logos/bayer.svg" alt="Logo Parceiro" loading="lazy">
-						</li>
-											<li class="parceiro">
-							<img src="/assets/img/logos/dekalb.png" alt="Logo Parceiro" loading="lazy">
-						</li>
-											<li class="parceiro">
-							<img src="/assets/img/logos/gioveli.png" alt="Logo Parceiro" loading="lazy">
-						</li>
-											<li class="parceiro">
-							<img src="/assets/img/logos/icl.png" alt="Logo Parceiro" loading="lazy">
-						</li>
-											<li class="parceiro">
-							<img src="/assets/img/logos/multitecnica.png" alt="Logo Parceiro" loading="lazy">
-						</li>
-											<li class="parceiro">
-							<img src="/assets/img/logos/ouropro.svg" alt="Logo Parceiro" loading="lazy">
-						</li>
-											<li class="parceiro">
-							<img src="/assets/img/logos/perfocal.png" alt="Logo Parceiro" loading="lazy">
-						</li>
-											<li class="parceiro">
-							<img src="/assets/img/logos/roratto.png" alt="Logo Parceiro" loading="lazy">
-						</li>
-									</ul>
-			</div>
-
-			<div class="parceiros__controls">
-				<button type="button" class="parceiros__arrow parceiros__arrow--prev" aria-label="Anterior">
-					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-				</button>
-				<button type="button" class="parceiros__arrow parceiros__arrow--next" aria-label="Próximo">
-					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-				</button>
-			</div>
-		</div>
-	</div>
-</section>
-<section class="section servicos" id="servicos">
-	<div class="container">
-		<header class="servicos__head" data-reveal>
-			<p class="eyebrow">Soluções</p>
-			<h2 class="servicos__title">Tudo o que sua lavoura precisa, em um só lugar</h2>
-		</header>
-
-		<div class="serv-grid">
-							<article class="serv-card" data-reveal style="--reveal-delay:70ms">
-					<span class="serv-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 21V10a6 6 0 0 1 12 0v11"/><path d="M4 21h16"/><path d="M6 13h12M6 16.5h12"/></svg></span>
-					<h3 class="serv-card__title">Armazenagem</h3>
-					<p class="serv-card__desc">Guarde seu grão com segurança e fature suas sacas quando fizer sentido para você. Estrutura própria e processo simples.</p>
-				</article>
-							<article class="serv-card" data-reveal style="--reveal-delay:140ms">
-					<span class="serv-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5" cy="6.5" r="2.2"/><circle cx="19" cy="6.5" r="2.2"/><circle cx="5" cy="17.5" r="2.2"/><circle cx="19" cy="17.5" r="2.2"/><rect x="9.5" y="9.5" width="5" height="5" rx="1.2"/><path d="M6.6 8.1 9.6 10.6M17.4 8.1 14.4 10.6M6.6 15.9 9.6 13.4M17.4 15.9 14.4 13.4"/></svg></span>
-					<h3 class="serv-card__title">Pulverização com drone</h3>
-					<p class="serv-card__desc">Aplicação rápida, precisa e no momento certo — sem amassar a lavoura.</p>
-				</article>
-							<article class="serv-card" data-reveal style="--reveal-delay:210ms">
-					<span class="serv-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9.5 4V2.8h5V4"/><path d="M9 12l2 2 4-4"/></svg></span>
-					<h3 class="serv-card__title">Acompanhamento técnico</h3>
-					<p class="serv-card__desc">Time de campo ao seu lado, da semente à colheita.</p>
-				</article>
-							<article class="serv-card" data-reveal style="--reveal-delay:280ms">
-					<span class="serv-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 8.5C7 6 9.2 5 12 5s5 1 5 3.5l-1.4 10.7a2 2 0 0 1-2 1.8h-3.2a2 2 0 0 1-2-1.8L7 8.5Z"/><path d="M9.3 5.6 12 8.3l2.7-2.7"/></svg></span>
-					<h3 class="serv-card__title">Insumos</h3>
-					<p class="serv-card__desc">Sementes, defensivos e fertilizantes das marcas certas, com quem entende da sua região.</p>
-				</article>
+			
+							<p class="svc__benefit">Mais produtividade, menos desperdício e decisões com base em informação, não em achismo.</p>
+			
 					</div>
-
-		<div class="servicos__cta" data-reveal>
-			<a class="btn btn--primary" href="#contato">Saiba mais</a>
-		</div>
 	</div>
 </section>
-<section class="unidades" id="unidades">
-	<div class="unidades__grid">
-		<div class="unidades__text" data-reveal>
-			<p class="eyebrow">Onde estamos</p>
-			<h2 class="unidades__title">Perto de você, onde você precisa</h2>
-			<p class="lead unidades__lead">
-				Com 5 unidades na região, a Agrofutura está sempre por perto — para receber seu
-				grão, entregar seus insumos e dar suporte no campo.
-			</p>
-			<a class="btn btn--primary" href="/quem-somos/#filiais">Ver todas as unidades</a>
+<section class="svc svc--areia svc--img-right">
+	<div class="svc__grid">
+		<div class="svc__media" data-reveal>
+			<img src="/assets/img/servicos/drone.jpg" alt="Pulverização com drone" loading="lazy">
 		</div>
 
-		<div class="unidades__media" data-reveal style="--reveal-delay:120ms">
-						<img class="unidades__img" src="/assets/img/unidades/onde-estamos.jpg?v=1782829054" alt="Unidade Agrofutura" loading="lazy">
-		</div>
+		<div class="svc__text" data-reveal style="--reveal-delay:120ms">
+							<p class="eyebrow svc__eyebrow">Serviço 02</p>
+						<h2 class="svc__title">Pulverização com drone</h2>
+			<p class="svc__body">A pulverização com drone chega onde o trator não vai e no momento em que a lavoura precisa. É aplicação ágil, uniforme e segura — sem amassar a plantação e sem depender de condições que travam o maquinário tradicional.</p>
+
+												<p class="svc__list-label">Por que importa</p>
+								<ul class="svc__list" role="list">
+											<li>
+															<strong>Sem amassamento:</strong>
+														o drone sobrevoa a lavoura, preservando as plantas						</li>
+											<li>
+															<strong>Acesso total:</strong>
+														atua em áreas encharcadas, declives e talhões de difícil acesso						</li>
+											<li>
+															<strong>Precisão na aplicação:</strong>
+														cobertura uniforme, com menos deriva e economia de produto						</li>
+											<li>
+															<strong>Rapidez:</strong>
+														janelas de aplicação aproveitadas no timing certo						</li>
+									</ul>
+			
+			
+					</div>
 	</div>
 </section>
+<section class="svc svc--verde svc--img-left">
+	<div class="svc__grid">
+		<div class="svc__media" data-reveal>
+			<img src="/assets/img/servicos/acompanhamento.jpeg" alt="Acompanhamento técnico" loading="lazy">
+		</div>
+
+		<div class="svc__text" data-reveal style="--reveal-delay:120ms">
+							<p class="eyebrow svc__eyebrow">Serviço 03</p>
+						<h2 class="svc__title">Acompanhamento técnico</h2>
+			<p class="svc__body">Tecnologia só vira resultado com gente que entende de campo ao lado do produtor. Nosso time técnico acompanha a sua lavoura da semente à colheita, ajustando o que for preciso ao longo do ciclo para proteger o seu investimento.</p>
+
+												<p class="svc__list-label">O que você tem</p>
+								<ul class="svc__list" role="list">
+											<li>
+														Visitas técnicas e acompanhamento ao longo da safra						</li>
+											<li>
+														Orientação no manejo, na nutrição e no controle de pragas e doenças						</li>
+											<li>
+														Recomendação alinhada com os insumos e o clima da sua região						</li>
+											<li>
+														Suporte para decisões no momento certo						</li>
+									</ul>
+			
+							<p class="svc__benefit">Assistência qualificada para garantir o retorno do investimento, com sustentabilidade socioambiental.</p>
+			
+					</div>
+	</div>
+</section>
+<section class="svc svc--branco svc--img-right">
+	<div class="svc__grid">
+		<div class="svc__media" data-reveal>
+			<img src="/assets/img/servicos/insumos.jpeg" alt="Insumos" loading="lazy">
+		</div>
+
+		<div class="svc__text" data-reveal style="--reveal-delay:120ms">
+							<p class="eyebrow svc__eyebrow">Serviço 04</p>
+						<h2 class="svc__title">Insumos</h2>
+			<p class="svc__body">Sementes, defensivos e fertilizantes das marcas certas, com a orientação de quem conhece a realidade da sua região. Mais do que vender insumo, ajudamos você a escolher o que faz sentido para a sua lavoura.</p>
+
+												<p class="svc__list-label">O que comercializamos</p>
+								<ul class="svc__list" role="list">
+											<li>
+														Sementes						</li>
+											<li>
+														Defensivos						</li>
+											<li>
+														Fertilizantes e nutrição						</li>
+											<li>
+														Indicação técnica para cada cultura e momento						</li>
+									</ul>
+			
+			
+							<a class="btn btn--primary svc__cta"
+					href="/insumos/">
+					Saiba mais				</a>
+					</div>
+	</div>
+</section>
+<section class="svc svc--areia svc--img-left">
+	<div class="svc__grid">
+		<div class="svc__media" data-reveal>
+			<img src="/assets/img/servicos/armazenagem.jpg" alt="Armazenagem" loading="lazy">
+		</div>
+
+		<div class="svc__text" data-reveal style="--reveal-delay:120ms">
+							<p class="eyebrow svc__eyebrow">Serviço 05</p>
+						<h2 class="svc__title">Armazenagem</h2>
+			<p class="svc__body">Depois da colheita, seu grão precisa de estrutura — e liberdade. Na Agrofutura, você recebe, trata e armazena a produção com segurança, e comercializa quando o mercado favorecer, faturando suas sacas no seu tempo.</p>
+
+												<p class="svc__list-label">A estrutura inclui</p>
+								<ul class="svc__list" role="list">
+											<li>
+														Recebimento, secagem, limpeza e padronização						</li>
+											<li>
+														Armazenagem segura em estrutura própria						</li>
+											<li>
+														Faturamento de sacas quando você decidir vender						</li>
+									</ul>
+			
+			
+							<a class="btn btn--primary svc__cta"
+					href="/armazenagem/">
+					Saiba mais				</a>
+					</div>
+	</div>
+</section>
+</div>
+
 <section class="section contato" id="contato">
 	<div class="container">
 		<div class="contato__box">
 			<div class="contato__intro" data-reveal>
 			<p class="eyebrow">Contato</p>
-			<h2 class="contato__title">Vamos conversar sobre a sua safra</h2>
-			<p class="lead">Conte o que você precisa — nossa equipe responde rápido.</p>
+			<h2 class="contato__title">Vamos cuidar da sua próxima safra juntos?</h2>
+			<p class="lead">Fale com a nossa equipe e descubra como a Agrofutura pode apoiar a sua lavoura.</p>
 
 			<ul class="contato__info" role="list">
 				<li><a href="tel:55999818419">55 99981-8419</a></li>
@@ -459,7 +278,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 			
 			<form class="contato__form" action="/wp-admin/admin-post.php" method="post">
 				<input type="hidden" name="action" value="agrofutura_contact">
-				<input type="hidden" id="agrofutura_contact_nonce" name="agrofutura_contact_nonce" value="4eb5ae5f98" /><input type="hidden" name="_wp_http_referer" value="/" />				<!-- honeypot anti-spam -->
+				<input type="hidden" id="agrofutura_contact_nonce" name="agrofutura_contact_nonce" value="4eb5ae5f98" /><input type="hidden" name="_wp_http_referer" value="/servicos/" />				<!-- honeypot anti-spam -->
 				<p class="contato__hp" aria-hidden="true">
 					<label>Não preencha<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
 				</p>
@@ -509,7 +328,6 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 		</div>
 	</div>
 </section>
-
 </main><!-- #main -->
 
 <footer class="site-footer">

@@ -114,9 +114,94 @@
     start();
   }
 
+  /* ---------- Filiais: troca o mapa ao selecionar uma unidade ---------- */
+  function initFiliais() {
+    var root = document.querySelector("[data-filiais]");
+    if (!root) return;
+    var frame = root.querySelector("[data-filiais-map]");
+    var buttons = root.querySelectorAll("[data-filial]");
+    if (!frame || !buttons.length) return;
+
+    buttons.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var url = btn.getAttribute("data-map");
+        if (url) frame.setAttribute("src", url);
+        buttons.forEach(function (b) {
+          b.classList.remove("is-active");
+          b.setAttribute("aria-pressed", "false");
+        });
+        btn.classList.add("is-active");
+        btn.setAttribute("aria-pressed", "true");
+      });
+    });
+  }
+
+  /* ---------- Trabalhe Conosco: dropzone de currículo ---------- */
+  function initCareersUpload() {
+    var drop = document.querySelector("[data-drop]");
+    if (!drop) return;
+    var input = drop.querySelector("[data-file]");
+    var nameEl = drop.querySelector("[data-file-name]");
+    if (!input) return;
+
+    function showName() {
+      if (nameEl) nameEl.textContent = input.files && input.files.length ? input.files[0].name : "";
+    }
+    input.addEventListener("change", showName);
+
+    ["dragenter", "dragover"].forEach(function (ev) {
+      drop.addEventListener(ev, function (e) {
+        e.preventDefault();
+        drop.classList.add("is-drag");
+      });
+    });
+    ["dragleave", "dragend", "drop"].forEach(function (ev) {
+      drop.addEventListener(ev, function () { drop.classList.remove("is-drag"); });
+    });
+    drop.addEventListener("drop", function (e) {
+      e.preventDefault();
+      if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files.length) {
+        input.files = e.dataTransfer.files;
+        showName();
+      }
+    });
+  }
+
+  /* ---------- Banner de cookies / LGPD ---------- */
+  function initCookieBanner() {
+    var banner = document.querySelector("[data-cookie-banner]");
+    if (!banner) return;
+    var KEY = "agro_cookie_consent";
+
+    var stored = null;
+    try { stored = localStorage.getItem(KEY); } catch (e) {}
+    if (stored === "accepted" || stored === "declined") return;
+
+    function save(value) {
+      try { localStorage.setItem(KEY, value); } catch (e) {}
+    }
+    function hide() {
+      banner.classList.remove("is-visible");
+      window.setTimeout(function () { banner.hidden = true; }, 500);
+    }
+
+    banner.hidden = false;
+    // Força reflow para a transição de entrada disparar.
+    void banner.offsetWidth;
+    requestAnimationFrame(function () { banner.classList.add("is-visible"); });
+
+    var accept = banner.querySelector("[data-cookie-accept]");
+    var decline = banner.querySelector("[data-cookie-decline]");
+    if (accept) accept.addEventListener("click", function () { save("accepted"); hide(); });
+    if (decline) decline.addEventListener("click", function () { save("declined"); hide(); });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     initReveal();
     initHeader();
     initRotator();
+    initFiliais();
+    initCareersUpload();
+    initCookieBanner();
   });
 })();

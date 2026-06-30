@@ -5,17 +5,26 @@
 /* ---------- 1. Hero / Capacidade ---------- */
 .arz-hero {
   position: relative;
-  min-height: 80vh;
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  color: var(--creme);
+  justify-content: center;
+  color: #fff;
   background: var(--arz-hero-bg) center / cover no-repeat, var(--preto);
-  padding-top: 9rem;
+  padding-top: 8rem;
+}
+.arz-hero__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
 }
 .arz-hero__scrim {
   position: absolute;
   inset: 0;
+  z-index: 0; /* acima do vídeo (mesma camada, vem depois no DOM) */
   background:
     linear-gradient(180deg, rgba(0, 0, 0,0.55) 0%, rgba(0, 0, 0,0.12) 32%),
     linear-gradient(0deg, rgba(0, 0, 0,0.88) 0%, rgba(0, 0, 0,0.2) 60%);
@@ -23,22 +32,27 @@
 .arz-hero__content {
   position: relative;
   z-index: 1;
-  padding-bottom: clamp(2.5rem, 5vw, 4rem);
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-block: clamp(2rem, 6vh, 5rem);
 }
-.arz-hero__eyebrow { color: var(--creme); opacity: 0.85; margin-bottom: 1rem; }
-.arz-hero__title { color: #fff; max-width: 22ch; }
+.arz-hero__eyebrow { color: #fff; opacity: 0.85; margin-bottom: 1rem; }
+.arz-hero__title { color: #fff; max-width: 22ch; margin: 0 auto; }
 .arz-hero__subtitle {
   font-size: var(--fs-lead);
   line-height: 1.55;
   color: rgba(255, 255, 255, 0.92);
   max-width: 60ch;
-  margin-top: 1.5rem;
+  margin: 1.5rem auto 0;
 }
 
 .arz-hero__proof {
   position: relative;
   z-index: 1;
-  border-top: 1px solid rgba(239, 222, 184, 0.22);
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
   background: rgba(0, 0, 0, 0.35);
   backdrop-filter: blur(3px);
 }
@@ -64,7 +78,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: rgba(239, 222, 184, 0.8);
+  color: rgba(255, 255, 255, 0.8);
   margin-top: 0.35rem;
   max-width: 22ch;
 }
@@ -73,11 +87,22 @@
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.04em;
-  color: var(--creme);
-  border: 1px solid rgba(239, 222, 184, 0.35);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: 999px;
   padding: 0.45em 1em;
 }
+
+/* ---------- Pilha sticky: "Como funciona" fica fixa e a seção de Armazenagem sobe por cima ---------- */
+.arz-stack { position: relative; }
+.arz-stack > .arz-como {
+  position: sticky;
+  top: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+.arz-stack > .arz-como > .container { width: 100%; }
 
 /* ---------- 2. Como funciona ---------- */
 .arz-como__head {
@@ -92,13 +117,13 @@
   padding: 0;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: clamp(1rem, 2vw, 1.5rem);
+  gap: 1px; /* o fundo aparece nos vãos formando as linhas finas (igual às grades da home) */
+  background: var(--qs-line, rgba(0, 0, 0, 0.14));
+  border-block: 1px solid var(--qs-line, rgba(0, 0, 0, 0.14));
 }
 .arz-step {
-  background: var(--areia);
-  border: var(--border);
-  border-radius: var(--radius);
-  padding: clamp(1.5rem, 2.2vw, 2rem);
+  background: #fff;
+  padding: clamp(2rem, 3vw, 3rem) clamp(1.5rem, 2vw, 2rem);
   position: relative;
 }
 .arz-step__num {
@@ -121,27 +146,34 @@
   color: var(--preto);
 }
 
-/* ---------- 3. CTA (band verde escuro) ---------- */
+/* ---------- 3. CTA (vídeo de fundo + overlay escuro) ---------- */
 .arz-cta {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(160deg, #2F4A34 0%, #1E311E 100%);
-  color: var(--creme);
+  color: #fff;
   padding-block: clamp(4rem, 9vw, 7rem);
   text-align: center;
 }
-.arz-cta__pattern {
+.arz-cta__video {
   position: absolute;
   inset: 0;
-  background: url("../img/patterns/white.webp") center / 520px repeat;
-  opacity: 0.08;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
 }
-.arz-cta__inner { position: relative; z-index: 1; }
+.arz-cta__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.75);
+}
+.arz-cta__inner { position: relative; z-index: 2; }
 .arz-cta__title { color: #fff; max-width: 20ch; margin: 0 auto 1rem; }
 .arz-cta__apoio {
   font-size: var(--fs-lead);
-  color: rgba(239, 222, 184, 0.9);
-  max-width: 50ch;
+  color: #fff;
+  max-width: none; /* uma linha no desktop */
   margin: 0 auto 2rem;
 }
 .arz-cta__actions {
@@ -155,6 +187,7 @@
 @media (max-width: 900px) {
   .arz-steps { grid-template-columns: repeat(2, 1fr); }
   .arz-proof__inner { justify-content: flex-start; }
+  .arz-stack > .arz-como { position: static; min-height: auto; display: block; }
 }
 @media (max-width: 560px) {
   .arz-steps { grid-template-columns: 1fr; }

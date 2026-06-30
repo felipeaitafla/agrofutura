@@ -1,0 +1,179 @@
+/* ==========================================================================
+   Agrofutura — Página Serviços
+   Hero + pilha de serviços com efeito stacking (sticky) + CTA/formulário.
+   ========================================================================== */
+
+/* ---------- 1. Hero (sticky: a 1ª seção de serviço sobe por cima) ---------- */
+.svc-hero {
+  position: sticky;
+  top: 0;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+  background: var(--svc-hero-bg) center / cover no-repeat, var(--preto);
+  padding-top: 8rem;
+}
+.svc-hero__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.svc-hero__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 0; /* acima do vídeo (mesma camada, vem depois no DOM) */
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.15) 30%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.25) 60%);
+}
+.svc-hero__content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-block: clamp(2rem, 6vh, 5rem);
+}
+.svc-hero__eyebrow { color: #fff; opacity: 0.85; margin-bottom: 1rem; }
+.svc-hero__title { color: #fff; max-width: 22ch; margin: 0 auto; }
+.svc-hero__subtitle {
+  font-size: var(--fs-lead);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.92);
+  max-width: 60ch;
+  margin: 1.5rem auto 0;
+}
+
+/* ---------- 2. Pilha de serviços (stacking) ---------- */
+/* Cada seção "gruda" no topo; a seguinte sobe por cima (fundo opaco cobre a anterior). */
+.svc-stack { position: relative; }
+.svc {
+  position: sticky;
+  top: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+}
+.svc__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  width: 100%;
+}
+/* Mídia full-bleed: ocupa a metade inteira, da borda da tela ao centro */
+.svc__media {
+  position: relative;
+  overflow: hidden;
+  min-height: 100%;
+}
+.svc__media img { width: 100%; height: 100%; object-fit: cover; }
+
+.svc__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-block: clamp(3rem, 6vw, 6rem);
+}
+/* imagem à esquerda → texto à direita (alinhado à borda direita do container) */
+.svc--img-left .svc__text {
+  padding-left: clamp(2rem, 5vw, 5rem);
+  padding-right: max(var(--gutter), calc((100vw - var(--container)) / 2 + var(--gutter)));
+}
+/* imagem à direita → inverte a ordem; texto à esquerda (alinhado à borda esquerda) */
+.svc--img-right .svc__media { order: 2; }
+.svc--img-right .svc__text {
+  order: 1;
+  padding-right: clamp(2rem, 5vw, 5rem);
+  padding-left: max(var(--gutter), calc((100vw - var(--container)) / 2 + var(--gutter)));
+}
+
+.svc__eyebrow { margin-bottom: 0.9rem; }
+.svc__title { margin-bottom: 1.25rem; }
+.svc__body { margin-bottom: 1.5rem; max-width: 52ch; }
+.svc__list-label {
+  font-size: var(--fs-label);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.75rem;
+}
+.svc__list { display: grid; gap: 0.6rem; margin-bottom: 1.5rem; max-width: 52ch; }
+.svc__list li {
+  position: relative;
+  padding-left: 1.25rem;
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+.svc__list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: currentColor;
+  opacity: 0.5;
+}
+.svc__list strong { font-weight: 700; }
+.svc__benefit {
+  font-size: var(--fs-lead);
+  line-height: 1.5;
+  max-width: 52ch;
+  margin-bottom: 1.5rem;
+}
+.svc__cta { margin-top: 0.5rem; }
+
+/* --- Temas de fundo + contraste de texto --- */
+.svc--vinho  { background: var(--vinho); color: #fff; }
+.svc--areia  { background: var(--areia); color: var(--preto); }
+.svc--verde  { background: var(--verde); color: #fff; }
+.svc--branco { background: #fff;         color: var(--preto); }
+
+/* Títulos (h2/h3 vêm em carvão por padrão; nos fundos escuros viram brancos) */
+.svc--vinho .svc__title,
+.svc--verde .svc__title { color: #fff; }
+
+/* Eyebrow + rótulo da lista: creme nos fundos escuros, vinho nos claros */
+.svc--vinho .svc__eyebrow, .svc--vinho .svc__list-label,
+.svc--verde .svc__eyebrow, .svc--verde .svc__list-label { color: var(--creme); }
+.svc--areia .svc__eyebrow, .svc--areia .svc__list-label,
+.svc--branco .svc__eyebrow, .svc--branco .svc__list-label { color: var(--vinho); }
+
+/* Benefício segue a cor do tema, levemente suavizado nos escuros */
+.svc--vinho .svc__benefit,
+.svc--verde .svc__benefit { color: rgba(255, 255, 255, 0.92); }
+
+/* A seção de contato vem depois da pilha sticky: precisa ser posicionada (z-index)
+   para ser pintada ACIMA das seções sticky — senão elas cobrem o fundo dela. */
+.svc-stack ~ .contato {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 900px) {
+  /* Desativa o stacking no mobile: hero e seções fluem normalmente, imagem em cima */
+  .svc-hero { position: static; }
+  .svc { position: static; min-height: auto; }
+  .svc__grid { grid-template-columns: 1fr; }
+  .svc__media {
+    order: -1;
+    min-height: 0;
+    aspect-ratio: 16 / 10;
+  }
+  .svc__text,
+  .svc--img-left .svc__text,
+  .svc--img-right .svc__text {
+    order: 0;
+    padding: clamp(2.5rem, 8vw, 4rem) max(var(--gutter), calc((100vw - var(--container)) / 2 + var(--gutter)));
+  }
+}

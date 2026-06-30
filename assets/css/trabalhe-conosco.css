@@ -1,0 +1,113 @@
+/* ==========================================================================
+   Agrofutura — Página Trabalhe Conosco
+   Hero só-texto (sem imagem) + formulário de candidatura em 2 colunas.
+   Reaproveita os estilos de campo (.field) de home.css.
+   ========================================================================== */
+
+/* ---------- 1. Hero (só texto, fundo vinho com textura, texto branco) ---------- */
+.tc-hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--vinho);
+  color: #fff;
+  padding-top: clamp(8.5rem, 13vh, 11rem);
+  padding-bottom: clamp(3rem, 6vw, 5rem);
+  text-align: center;
+}
+.tc-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("../img/patterns/white.webp") center / 480px repeat;
+  opacity: 0.07;
+  pointer-events: none;
+}
+.tc-hero__inner { position: relative; z-index: 1; max-width: 760px; }
+.tc-hero__eyebrow { color: var(--creme); margin-bottom: 1rem; }
+.tc-hero__title { color: #fff; margin-bottom: 1.25rem; }
+.tc-hero__subtitle {
+  font-size: var(--fs-lead);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.92);
+  max-width: 72ch; /* largura que quebra o subtítulo em ~2 linhas no desktop */
+  margin-inline: auto;
+  text-wrap: balance;
+}
+
+/* ---------- 2. Formulário ---------- */
+/* sem override de padding-top: herda o .section (var(--space-section)) p/ igualar o espaço hero→form da página de contato */
+.tc-form {
+  max-width: 920px;
+  margin-inline: auto;
+  background-color: #FDFBF7;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  padding: clamp(2rem, 4vw, 4rem);
+}
+.tc-form__cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.5rem, 4vw, 3rem);
+}
+.tc-form__col { display: grid; gap: 1.5rem; align-content: start; }
+.tc-form__submit {
+  width: 100%;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.tc-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.tc-hint { font-weight: 400; text-transform: none; letter-spacing: 0; color: var(--cinza); }
+
+/* Dropzone de currículo */
+.tc-drop {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-align: center;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  margin-top: 0.5rem;
+  border: 1.5px dashed rgba(0, 0, 0, 0.25);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: border-color 0.25s var(--ease), background 0.25s var(--ease);
+}
+.tc-drop:hover,
+.tc-drop.is-drag { border-color: var(--verde); background: rgba(64, 97, 70, 0.05); }
+.tc-drop input[type="file"] {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+.tc-drop__icon { font-size: 1.4rem; color: var(--verde); line-height: 1; }
+.tc-drop__text { font-size: 0.9rem; color: var(--cinza); }
+.tc-drop__text strong { color: var(--verde); font-weight: 700; }
+.tc-drop__name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--preto);
+  word-break: break-all;
+}
+.tc-drop__name:empty { display: none; }
+
+/* Consentimento LGPD */
+.tc-consent {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: var(--cinza);
+  cursor: pointer;
+}
+.tc-consent input { margin-top: 0.2rem; flex: none; accent-color: var(--verde); }
+.tc-consent a { color: var(--verde); text-decoration: underline; }
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 760px) {
+  .tc-form__cols { grid-template-columns: 1fr; }
+}
