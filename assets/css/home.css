@@ -716,27 +716,60 @@
 
 /* ---------- Responsivo ---------- */
 @media (max-width: 900px) {
-  .site-nav { display: none; }
-  .site-header__cta { margin-left: auto; }
+  /* logo e burger acima do overlay do menu */
+  .site-header__brand,
+  .site-header__burger { position: relative; z-index: 2; }
+
+  /* Menu mobile: overlay deslizante */
+  .site-nav {
+    display: flex;
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    margin: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--vinho);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s var(--ease), visibility 0.3s var(--ease);
+  }
+  .site-nav__list { flex-direction: column; align-items: center; gap: 1.75rem; }
+  .site-nav__list a { color: #fff; font-size: 1.2rem; }
   .site-header__burger {
     display: inline-flex;
     flex-direction: column;
     justify-content: center;
     gap: 5px;
     width: 44px; height: 44px;
+    margin-left: auto; /* encostado na direita */
     background: transparent;
     border: none;
   }
   .site-header__burger span {
     display: block;
     height: 2px; width: 24px;
-    background: var(--creme);
-    transition: background 0.3s var(--ease);
+    background: #fff; /* branco antes da rolagem */
+    transform-origin: center;
+    transition: background 0.3s var(--ease), transform 0.3s var(--ease), opacity 0.3s var(--ease);
   }
   .site-header.is-scrolled .site-header__burger span { background: var(--preto); }
+
+  /* Estado aberto do menu */
+  .site-header.nav-open { background: transparent; box-shadow: none; }
+  .site-header.nav-open .site-nav { opacity: 1; visibility: visible; }
+  .site-header.nav-open .site-nav__list a { color: #fff; }
+  body.nav-open { overflow: hidden; }
+  .site-header.nav-open .brand-logo--light { opacity: 1; }
+  .site-header.nav-open .brand-logo--dark { opacity: 0; }
+  .site-header.nav-open .site-header__burger span { background: #fff; }
+  .site-header.nav-open .site-header__burger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .site-header.nav-open .site-header__burger span:nth-child(2) { opacity: 0; }
+  .site-header.nav-open .site-header__burger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
   .footer-cols { grid-template-columns: repeat(3, 1fr); gap: 1.75rem 2rem; }
   .cot-grid { grid-template-columns: 1fr; }
-  .prev-grid { grid-template-columns: 1fr; }
+  .prev-grid { grid-template-columns: 1fr; margin-top: clamp(2.5rem, 7vw, 3.5rem); } /* separa visualmente cotações x clima */
   .cot-card, .prev-card {
     border-left: none;
     border-top: 1px solid var(--cot-line);
@@ -757,6 +790,9 @@
 }
 @media (max-width: 560px) {
   .site-header__cta { display: none; }
+  /* Botões full width no geral (CTAs do conteúdo) */
+  .btn { width: 100%; justify-content: center; }
+  .cookie-banner__actions .btn { width: auto; } /* mantém Recusar/Aceitar lado a lado */
   .footer-cols { grid-template-columns: repeat(2, 1fr); }
   .footer-top { gap: 1.5rem; }
   .serv-grid { grid-template-columns: 1fr; }

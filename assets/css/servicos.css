@@ -165,8 +165,10 @@
   .svc-hero { position: static; }
   .svc { position: static; min-height: auto; }
   .svc__grid { grid-template-columns: 1fr; }
-  .svc__media {
-    order: -1;
+  .svc__media,
+  .svc--img-left .svc__media,
+  .svc--img-right .svc__media {
+    order: -1; /* imagem sempre antes do texto no mobile (vence o order:2 do desktop) */
     min-height: 0;
     aspect-ratio: 16 / 10;
   }

@@ -196,6 +196,37 @@
     if (decline) decline.addEventListener("click", function () { save("declined"); hide(); });
   }
 
+  /* ---------- Menu mobile (burger) ---------- */
+  function initBurger() {
+    var burger = document.querySelector("[data-burger]");
+    var header = document.querySelector("[data-header]");
+    if (!burger || !header) return;
+    var nav = header.querySelector(".site-nav");
+
+    function setOpen(open) {
+      header.classList.toggle("nav-open", open);
+      document.body.classList.toggle("nav-open", open);
+      burger.setAttribute("aria-expanded", open ? "true" : "false");
+      burger.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+    }
+
+    burger.addEventListener("click", function () {
+      setOpen(!header.classList.contains("nav-open"));
+    });
+
+    // Fecha ao clicar num link do menu.
+    if (nav) {
+      nav.addEventListener("click", function (e) {
+        if (e.target.closest("a")) setOpen(false);
+      });
+    }
+
+    // Fecha com Esc.
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") setOpen(false);
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     initReveal();
     initHeader();
@@ -203,5 +234,6 @@
     initFiliais();
     initCareersUpload();
     initCookieBanner();
+    initBurger();
   });
 })();
