@@ -779,7 +779,7 @@
   right: 0;
   bottom: 0;
   z-index: 1000;
-  background: var(--verde-noite);
+  background: var(--vinho);
   color: #fff;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.18);
@@ -792,8 +792,8 @@
   align-items: center;
   justify-content: space-between;
   gap: 1.25rem clamp(1.5rem, 4vw, 3rem);
-  padding-top: 1.1rem;
-  padding-bottom: 1.1rem;
+  padding-top: 2.2rem;
+  padding-bottom: 2.2rem;
 }
 .cookie-banner__text {
   margin: 0;
