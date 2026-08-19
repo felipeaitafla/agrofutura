@@ -1,0 +1,208 @@
+/* ==========================================================================
+   Agrofutura — Página Blog
+   Topo (breadcrumb + título) + barra de filtro/busca + grid de publicações.
+   ========================================================================== */
+
+/* ---------- 1. Topo ---------- */
+.blog-top {
+  padding-top: clamp(8.5rem, 13vh, 11rem);
+  padding-bottom: clamp(2.5rem, 5vw, 4rem);
+  background: #fff;
+}
+.blog-crumbs {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--cinza);
+  margin-bottom: 2rem;
+}
+.blog-crumbs a { transition: color 0.25s var(--ease); }
+.blog-crumbs a:hover { color: var(--verde); }
+.blog-crumbs [aria-hidden] { color: var(--vinho); opacity: 0.55; }
+.blog-crumbs [aria-current] { color: var(--preto); font-weight: 700; }
+
+.blog-top__eyebrow { margin-bottom: 1.25rem; }
+.blog-top__title { margin-bottom: 1.5rem; }
+.blog-top__title em { font-style: italic; }
+.blog-top__subtitle { max-width: 62ch; }
+
+/* ---------- 2. Filtro + busca ---------- */
+.blog-filter {
+  background: #fff;
+  border-top: var(--border);
+  border-bottom: var(--border);
+  padding-block: 1.5rem;
+}
+.blog-filter__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+.blog-filter__pills { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.blog-filter__list { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+
+.blog-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  padding: 0.55em 1.2em;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  background: transparent;
+  color: var(--preto);
+  font-size: 0.85rem;
+  font-weight: 700;
+  transition: background-color 0.25s var(--ease), color 0.25s var(--ease), border-color 0.25s var(--ease);
+}
+.blog-pill:hover { border-color: var(--verde); color: var(--verde); }
+.blog-pill.is-active { background: var(--preto); border-color: var(--preto); color: #fff; }
+.blog-pill.is-active:hover { color: #fff; }
+.blog-pill__count { font-size: 0.75em; opacity: 0.65; }
+
+.blog-search {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-width: 240px;
+  padding-bottom: 0.4em;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.22);
+  color: var(--cinza);
+  transition: border-color 0.25s var(--ease);
+}
+.blog-search:focus-within { border-color: var(--verde); }
+.blog-search svg { width: 18px; height: 18px; flex-shrink: 0; }
+.blog-search input {
+  border: 0;
+  background: transparent;
+  width: 100%;
+  font-size: 0.9rem;
+  color: var(--preto);
+}
+.blog-search input:focus { outline: none; }
+.blog-search input::placeholder { color: var(--cinza); }
+
+/* ---------- 3. Grid de publicações ---------- */
+.blog-grid-section { background: #fff; }
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+.blog-card { display: flex; flex-direction: column; }
+.blog-card[hidden] { display: none; }
+.blog-card__media {
+  display: block;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  margin-bottom: 1.25rem;
+}
+.blog-card__media img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s var(--ease); }
+.blog-card:hover .blog-card__media img { transform: scale(1.04); }
+.blog-card__media--empty {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--areia) 0%, var(--creme) 100%);
+}
+
+.blog-card__tag {
+  display: inline-block;
+  font-size: var(--fs-label);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--verde);
+  margin-bottom: 0.6rem;
+}
+.blog-card__title { font-size: var(--fs-h3); margin-bottom: 0.6rem; }
+.blog-card__title a:hover { color: var(--verde); }
+.blog-card__excerpt { color: var(--cinza); margin-bottom: 0.75rem; }
+.blog-card__date { font-size: 0.85rem; color: var(--cinza); }
+
+.blog-empty {
+  text-align: center;
+  color: var(--cinza);
+  padding-block: 3rem;
+}
+
+@media (max-width: 900px) {
+  .blog-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 620px) {
+  .blog-grid { grid-template-columns: 1fr; }
+  .blog-filter__inner { flex-direction: column; align-items: stretch; }
+  .blog-search { min-width: 0; }
+}
+
+/* ---------- 4. Instagram: últimas postagens ---------- */
+.blog-instagram {
+  background: var(--verde-noite);
+}
+.blog-instagram__head {
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+  text-align: center;
+}
+.blog-instagram__eyebrow { color: var(--creme); }
+.blog-instagram__title { color: #fff; margin: 1rem 0 1.25rem; }
+.blog-instagram__handle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  font-weight: 700;
+  color: var(--creme);
+  transition: color 0.25s var(--ease);
+}
+.blog-instagram__handle svg { width: 20px; height: 20px; }
+.blog-instagram__handle:hover { color: #fff; }
+
+.blog-instagram__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(0.75rem, 1.5vw, 1.25rem);
+}
+.blog-instagram__tile {
+  position: relative;
+  display: block;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+}
+.blog-instagram__tile-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.03) 100%);
+  transition: transform 0.5s var(--ease);
+}
+.blog-instagram__tile-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s var(--ease);
+}
+.blog-instagram__tile:hover .blog-instagram__tile-bg,
+.blog-instagram__tile:hover .blog-instagram__tile-img { transform: scale(1.06); }
+.blog-instagram__tile-icon {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.25);
+  transition: opacity 0.25s var(--ease);
+}
+.blog-instagram__tile-icon svg { width: 28px; height: 28px; }
+.blog-instagram__tile:hover .blog-instagram__tile-icon { opacity: 1; }
+
+.blog-instagram__cta { margin-top: clamp(2rem, 4vw, 3rem); text-align: center; }
+
+@media (max-width: 480px) {
+  .blog-instagram__grid { grid-template-columns: repeat(2, 1fr); }
+}
